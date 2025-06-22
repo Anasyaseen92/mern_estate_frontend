@@ -7,9 +7,10 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "https://mern-estate-backend-pied.vercel.app/",
         changeOrigin: true,
         secure: false,
+         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
