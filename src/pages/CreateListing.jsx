@@ -146,7 +146,7 @@ export default function CreateListing() {
     try {
       setLoadingForServer(true);
 
-      const response = await fetch('/api/listing/create', {
+      const response = await fetch('https://mern-estate-backend-pied.vercel.app/api/listing/create', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

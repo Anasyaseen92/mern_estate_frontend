@@ -85,7 +85,7 @@ const Search = () => {
         setShowMore(false);
       setLoading(true);
       const searchQuery = urlParams.toString();
-      const response = await fetch(`/api/listing/get?${searchQuery}`);
+      const response = await fetch(`https://mern-estate-backend-pied.vercel.app/api/listing/get?${searchQuery}`);
       const jsonData = await response.json();
       console.log(jsonData);
       setListings(jsonData);
@@ -127,7 +127,7 @@ const Search = () => {
     urlParams.set('startIndex', startIndex);
     const searchQuery= urlParams.toString();
 
-    const response = await fetch(`/api/listing/get?${searchQuery}`);
+    const response = await fetch(`https://mern-estate-backend-pied.vercel.app/api/listing/get?${searchQuery}`);
     const jsonData = await response.json();
     setShowMore(false);
     console.log(jsonData)

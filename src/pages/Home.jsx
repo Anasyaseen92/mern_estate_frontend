@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchOfferListing = async () => {
       try {
-        const response = await fetch("/api/listing/get?offer=true&limit=4");
+        const response = await fetch("https://mern-estate-backend-pied.vercel.app/api/listing/get?offer=true&limit=4");
         const jsonData = await response.json();
         setOfferListing(jsonData);
       } catch (e) {
@@ -27,7 +27,7 @@ const Home = () => {
 
     const fetchRentListing = async () => {
       try {
-        const response = await fetch("/api/listing/get?type=rent&limit=4");
+        const response = await fetch("https://mern-estate-backend-pied.vercel.app/api/listing/get?type=rent&limit=4");
         const jsonData = await response.json();
         setRentListing(jsonData);
       } catch (e) {
@@ -37,7 +37,7 @@ const Home = () => {
 
     const fetchSaleListing = async () => {
       try {
-        const response = await fetch("/api/listing/get?type=sale&limit=4");
+        const response = await fetch("https://mern-estate-backend-pied.vercel.app/api/listing/get?type=sale&limit=4");
         const jsonData = await response.json();
         setSaleListing(jsonData);
       } catch (e) {

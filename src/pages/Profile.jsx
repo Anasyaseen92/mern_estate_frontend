@@ -96,7 +96,7 @@ function Profile() {
     dispatch(updateUserStart());
 
     try {
-      const res = await fetch(`/api/user/update/${userId}`, {
+      const res = await fetch(`https://mern-estate-backend-pied.vercel.app/api/user/update/${userId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function Profile() {
 
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`https://mern-estate-backend-pied.vercel.app/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -151,7 +151,7 @@ function Profile() {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("/api/auth/signout", {
+      const res = await fetch("https://mern-estate-backend-pied.vercel.app/api/auth/signout", {
         method: "GET",
         credentials: "include",
       });
@@ -170,7 +170,7 @@ function Profile() {
   const handleShowListings = async () => {
     try {
       setShowListingError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const res = await fetch(`https://mern-estate-backend-pied.vercel.app/api/user/listings/${currentUser._id}`);
       const data = await res.json();
       console.log("Fetched Listings Data:", data);
       if (data.success === false) {
@@ -185,7 +185,7 @@ function Profile() {
 
   const handleListingDelete = async (listingId) => {
     try {
-      const res = await fetch(`/api/listing/delete/${listingId}`, {
+      const res = await fetch(`https://mern-estate-backend-pied.vercel.app/api/listing/delete/${listingId}`, {
         method: "DELETE",
       });
       const data = await res.json();

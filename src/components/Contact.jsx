@@ -11,7 +11,7 @@ const Contact = ({ listing }) => {
   useEffect(() => {
     const fetchLandLord = async () => {
       try {
-        const response = await fetch(`/api/user/${listing.userRef}`);
+        const response = await fetch(`https://mern-estate-backend-pied.vercel.app/api/user/${listing.userRef}`);
         const jsonData = await response.json();
         setLandLord(jsonData);
       } catch (e) {

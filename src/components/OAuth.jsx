@@ -15,7 +15,7 @@ function OAuth() {
       const auth = getAuth(app);
       const result = await signInWithPopup(auth, provider);
       alert(`Signed in as ${result.user.displayName}`);
-      const res = await fetch("/api/auth/google", {
+      const res = await fetch("https://mern-estate-backend-pied.vercel.app/api/auth/google", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

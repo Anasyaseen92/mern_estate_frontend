@@ -30,7 +30,7 @@ const Listing = () => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await fetch(`/api/listing/get/${params.listingId}`);
+        const response = await fetch(`https://mern-estate-backend-pied.vercel.app/api/listing/get/${params.listingId}`);
         const jsonData = await response.json();
         console.log("Fetched listing:", jsonData); // ✅ Debug log
 
