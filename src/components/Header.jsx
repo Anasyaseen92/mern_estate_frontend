@@ -54,7 +54,7 @@ export default function Header() {
           <li>
             <Link
               to="/"
-              className="hidden sm:inline text-slate-700 hover:underline"
+              className=" sm:inline text-slate-700 hover:underline"
             >
               Home
             </Link>
@@ -62,7 +62,7 @@ export default function Header() {
           <li>
             <Link
               to="/about"
-              className="hidden sm:inline text-slate-700 hover:underline"
+              className=" sm:inline text-slate-700 hover:underline"
             >
               About
             </Link>
@@ -82,7 +82,7 @@ export default function Header() {
             <li>
               <Link
                 to="/sign-in"
-                className="hidden sm:inline text-slate-700 hover:underline"
+                className=" sm:inline text-slate-700 hover:underline"
               >
                 Sign In
               </Link>
