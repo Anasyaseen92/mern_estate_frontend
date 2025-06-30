@@ -30,31 +30,31 @@ const Listing = () => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await fetch(`https://mern-estate-backend-pied.vercel.app/api/listing/get/${params.listingId}`);
-        const jsonData = await response.json();
-        console.log("Fetched listing:", jsonData); // ✅ Debug log
+        const response = await fetch(
+          `https://mern-estate-backend-pied.vercel.app/api/listing/get/${params.listingId}`
+        );
 
-        if (jsonData.success == false) {
-          console.log(jsonData.message);
-          setError(jsonData.message);
-          setLoading(false);
-          return;
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // ✅ Automatically detect correct image key
+        const jsonData = await response.json();
+        console.log("Fetched listing:", jsonData);
+
         const images =
-          jsonData.imagesUrls || jsonData.imageUrls || jsonData.images || [];
+          jsonData.imageUrls || jsonData.imagesUrls || jsonData.images || [];
 
         setListing({ ...jsonData, imagesUrls: images });
         setLoading(false);
         setError(null);
       } catch (e) {
-        setError(e.message);
+        console.error("Error fetching listing:", e);
+        setError("Failed to fetch listing. Please try again.");
         setLoading(false);
       }
     };
     fetchListing();
-  }, []);
+  }, [params.listingId]);
 
   return (
     <main>
@@ -64,8 +64,8 @@ const Listing = () => {
         </p>
       )}
       {error && (
-        <p className="text-2xl my-7 text-center font-bold">
-          something went wrong
+        <p className="text-2xl my-7 text-center font-bold text-red-500">
+          {error}
         </p>
       )}
       {listing && !loading && !error && (
@@ -155,7 +155,6 @@ const Listing = () => {
               </li>
             </ul>
 
-            {/* ✅ FIXED: Safe comparison between userRef and _id */}
             {currentUser &&
               String(listing.userRef) !== String(currentUser.listingId) &&
               !contact && (
